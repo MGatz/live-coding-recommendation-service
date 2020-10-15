@@ -1,0 +1,40 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "The product recommendation engine.",
+    "version": "1.0.0"
+  },
+  "definitions": {
+    "ProductList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "bestForWeatherConditions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sunny",
+                "cloudy",
+                "rainy",
+                "snowy",
+                "windy"
+              ]
+            }
+          },
+          "lowestTemperature": {
+            "type": "integer"
+          },
+          "heighestTemperatur": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "paths": {}
+}
