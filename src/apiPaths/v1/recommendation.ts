@@ -16,3 +16,35 @@ export const GET: Operation = async (req: Request, res: Response) => {
 
   res.json(recommendedProducts);
 }
+
+GET.apiDoc = {
+  description: 'Get product recommendation for location by geographical coordinates.',
+  operationId: 'getRecommendation',
+  parameters: [{
+    in: 'query',
+    name: 'lat',
+    required: true,
+    type: 'number'
+  }, {
+    in: 'query',
+    name: 'lon',
+    required: true,
+    type: 'number'
+  }, {
+    in: 'query',
+    name: 'daysAhead',
+    required: true,
+    type: 'number'
+  }],
+  responses: {
+    200: {
+      description: 'List of recommended products.',
+      schema: {
+        type: 'array',
+        items: {
+          $ref: '#/definitions/DailyWeather'
+        }
+      }
+    }
+  }
+}
